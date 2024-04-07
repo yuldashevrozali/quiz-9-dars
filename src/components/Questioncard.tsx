@@ -1,35 +1,43 @@
-import React from "react";
+import React from 'react';
+import { AnswerObject } from '../App';
+import { ButtonWrapper, Wrapper } from './QuestionCard.styles';
 
 type Props = {
   question: string;
   answers: string[];
   callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  userAnswer: any;
+  userAnswer: AnswerObject | undefined;
   questionNr: number;
   totalQuestions: number;
 };
-const Questioncard: React.FC<Props> = ({ question,
+
+const QuestionCard: React.FC<Props> = ({
+  question,
   answers,
   callback,
   userAnswer,
   questionNr,
-  totalQuestions
-}) => {
-  return (
+  totalQuestions,
+}) => (
+  <Wrapper>
+    <p className='number'>
+      Question: {questionNr} / {totalQuestions}
+    </p>
+    <p dangerouslySetInnerHTML={{ __html: question }} />
     <div>
-      <p className='number'>
-        Question: {questionNr} / {totalQuestions}
-      </p>
-      <p dangerouslySetInnerHTML={{ __html: question }} />
-      <div>
-        {answers.map((answer) => (
-          <button disabled={userAnswer} onClick={callback}>
+      {answers.map((answer) => (
+        <ButtonWrapper
+          key={answer}
+          correct={userAnswer?.correctAnswer === answer}
+          userClicked={userAnswer?.answer === answer}
+        >
+          <button disabled={userAnswer ? true : false} value={answer} onClick={callback}>
             <span dangerouslySetInnerHTML={{ __html: answer }} />
           </button>
-        ))}
-      </div>
+        </ButtonWrapper>
+      ))}
     </div>
-  )
-}
+  </Wrapper>
+);
 
-export default Questioncard
+export default QuestionCard;
