@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import './App.css'
-import Questioncard from './components/Questioncard'
+// import Questioncard from './components/Questioncard'
 import { fetchQuizQuestions } from './Api'
 import { Difficulty } from './Api'
 
 const TOTAL_QUESTIONS = 10;
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState([]);
-  const [number, setNumber] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]);
-  const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(true);
+  // const [loading, setLoading] = useState(false);
+  // const [questions, setQuestions] = useState([]);
+  // const [number, setNumber] = useState(0);
+  // const [userAnswers, setUserAnswers] = useState([]);
+  // const [score, setScore] = useState(0);
+  // const [gameOver, setGameOver] = useState(true);
 
   console.log(fetchQuizQuestions(TOTAL_QUESTIONS,Difficulty.EASY));
 
@@ -22,9 +22,9 @@ const App = () => {
 
   }
 
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+  // const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
 
-  }
+  // }
 
   const nextQuestion = () => {
 
