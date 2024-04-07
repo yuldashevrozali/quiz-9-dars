@@ -67,7 +67,7 @@ const App: React.FC = () => {
         <h1>REACT QUIZ</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className='start' onClick={startTrivia}>
-            Start
+            start
           </button>
         ) : null}
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
